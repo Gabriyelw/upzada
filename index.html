@@ -21,7 +21,6 @@
   .image {
     position: absolute;
     width: 150px;
-    display: none;
   }
 </style>
 </head>
@@ -36,6 +35,9 @@
   let ySpeed = 5;
 
   const cuteImage = document.getElementById("cuteImage");
+
+  // Faz a imagem aparecer, se estava oculta
+  cuteImage.style.display = "block";
 
   function updateLogoPosition() {
     const logoWidth = cuteImage.width;
