@@ -1,9 +1,65 @@
-<html>
-  <head>
-    <title>Relatório Power BI</title>
-  </head>
-  <body>
-    <h1>Relatório Power BI Incorporado</h1>
-    <iframe width="800" height="600" src="https://app.powerbi.com/reportEmbed?reportId=SEU_REPORT_ID&groupId=SEU_GROUP_ID&autoAuth=true&ctid=SEU_CTI_ID" frameborder="0" allowFullScreen="true"></iframe>
-  </body>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jogo do Coração</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+  }
+
+  .image {
+    position: absolute;
+    width: 150px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<img src="https://up.bet.br/_next/image?url=%2Flogo.webp&w=96&q=75&dpl=dpl_5H1XgDGfszfuX7kjM9Vrn9SPwQSK" alt="Imagem Fofo" id="cuteImage" class="image">
+
+<script>
+  let xPos = 0;
+  let yPos = 0;
+  let xSpeed = 5;
+  let ySpeed = 5;
+
+  const cuteImage = document.getElementById("cuteImage");
+
+  function updateLogoPosition() {
+    const logoWidth = cuteImage.width;
+    const logoHeight = cuteImage.height;
+
+    xPos += xSpeed;
+    yPos += ySpeed;
+
+    if (xPos + logoWidth >= window.innerWidth || xPos <= 0) {
+      xSpeed *= -1;
+    }
+
+    if (yPos + logoHeight >= window.innerHeight || yPos <= 0) {
+      ySpeed *= -1;
+    }
+
+    cuteImage.style.left = `${xPos}px`;
+    cuteImage.style.top = `${yPos}px`;
+
+    requestAnimationFrame(updateLogoPosition);
+  }
+
+  updateLogoPosition();
+</script>
+
+</body>
 </html>
