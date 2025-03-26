@@ -25,6 +25,23 @@
         .indent {
             margin-left: 20px;
         }
+
+        /* Estilo para marcar o texto */
+        .highlight {
+            background-color: yellow;
+            animation: highlightAnimation 2s ease-out;
+        }
+
+        /* Animação de destaque */
+        @keyframes highlightAnimation {
+            0% {
+                background-color: yellow;
+            }
+            100% {
+                background-color: transparent;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -32,12 +49,12 @@
 
     <h2>📌 Índice</h2>
     <ul>
-        <li><a href="#tabulacao">1 - Tabulação</a></li>
-        <li><a href="#objetivo">2 - Objetivo</a></li>
-        <li><a href="#perguntas-frequentes">3 - Perguntas Frequentes</a></li>
-        <li><a href="#resumo">4 - Resumo</a></li>
-        <li><a href="#detalhado">5 - Detalhado</a></li>
-        <li><a href="#problemas">6 - Problemas e Procedimentos de Resolução</a></li>
+        <li><a href="#tabulacao" onclick="highlightSection('tabulacao')">1 - Tabulação</a></li>
+        <li><a href="#objetivo" onclick="highlightSection('objetivo')">2 - Objetivo</a></li>
+        <li><a href="#perguntas-frequentes" onclick="highlightSection('perguntas-frequentes')">3 - Perguntas Frequentes</a></li>
+        <li><a href="#resumo" onclick="highlightSection('resumo')">4 - Resumo</a></li>
+        <li><a href="#detalhado" onclick="highlightSection('detalhado')">5 - Detalhado</a></li>
+        <li><a href="#problemas" onclick="highlightSection('problemas')">6 - Problemas e Procedimentos de Resolução</a></li>
     </ul>
 
     <h2 id="tabulacao">1 - Tabulação</h2>
@@ -96,5 +113,19 @@
     </script>
     <noscript><a href="https://www.livechat.com/chat-with/19073595/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
     <!-- End of LiveChat code -->
+
+    <script>
+        function highlightSection(id) {
+            // Remove any existing highlight
+            const previousHighlight = document.querySelector('.highlight');
+            if (previousHighlight) {
+                previousHighlight.classList.remove('highlight');
+            }
+
+            // Add highlight class to the clicked section
+            const section = document.getElementById(id);
+            section.classList.add('highlight');
+        }
+    </script>
 </body>
 </html>
